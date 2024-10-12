@@ -87,6 +87,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   font-weight: 900;
+  color: #000;
 }
 
 .address-button:hover,
