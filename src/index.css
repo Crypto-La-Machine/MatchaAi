@@ -78,7 +78,25 @@ body {
   margin: 20px 0;
 }
 
-.address-button,
+.address-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border: 2px solid #000;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 900;
+}
+
+.icon-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .buy-button {
   padding: 10px 20px;
   font-size: 0.9rem;
