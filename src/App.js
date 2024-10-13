@@ -35,7 +35,7 @@ function App() {
         if (loadedImages === images.length) {
           setTimeout(() => {
             setLoading(false);
-            gsap.to(".coming-soon img, .content", {
+            gsap.to(".coming-soon .content-img, .coming-soon .content", {
               opacity: 1,
               duration: 1.5,
               ease: "power2.out",
@@ -73,13 +73,28 @@ function App() {
 
   return (
     <div className="coming-soon" ref={container}>
-      {loading && <div className="loader">Loading...</div>}
+      {loading && (
+        <div id='leaf-loader-logo'>
+          <img src="/loaderMatchaLeaf.webp" width="147" height="147" alt="loaderLeaf" />
+          <div id="ring">
+            <svg width="157" height="157" viewBox="0 0 157 157" fill="none">
+              <path d="M152 78.5C152 88.1522 150.099 97.7098 146.405 106.627C142.711 115.545 137.297 123.647 130.472 130.472C123.647 137.297 115.545 142.711 106.627 146.405C97.7098 150.099 88.1522 152 78.5 152C68.8478 152 59.2902 150.099 50.3728 146.405C41.4553 142.711 33.3528 137.297 26.5276 130.472C19.7025 123.647 14.2886 115.545 10.5949 106.627C6.90113 97.7098 5 88.1522 5 78.5C5 68.8478 6.90114 59.2902 10.5949 50.3728C14.2886 41.4553 19.7026 33.3528 26.5277 26.5276C33.3528 19.7025 41.4553 14.2886 50.3728 10.5949C59.2902 6.90113 68.8479 5 78.5 5C88.1522 5 97.7098 6.90114 106.627 10.5949C115.545 14.2886 123.647 19.7026 130.472 26.5277C137.297 33.3528 142.711 41.4553 146.405 50.3728C150.099 59.2902 152 68.8479 152 78.5L152 78.5Z" stroke="url(#paint0_linear_878_20181)" strokeWidth="6" strokeLinejoin="round" />
+              <defs>
+                <linearGradient id="paint0_linear_878_20181" x1="5" y1="94.9609" x2="145.461" y2="94.9609" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#69c510" />
+                  <stop offset="0.741563" stopColor="#538b01" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      )}
 
-      <img src="/leafMatchaLeft.webp" className="leaf left-leaf" alt="Left Leaf" />
-      <img src="/leafMatchaRight.webp" className="leaf right-leaf" alt="Right Leaf" />
+      <img src="/leafMatchaLeft.webp" className="leaf left-leaf content-img" alt="Left Leaf" />
+      <img src="/leafMatchaRight.webp" className="leaf right-leaf content-img" alt="Right Leaf" />
 
       <div className="content">
-        <img src="/logoMatcha.webp" className="logo" alt="Matcha Logo" />
+        <img src="/logoMatcha.webp" className="logo content-img" alt="Matcha Logo" />
         <h2 className="subtitle">COMING SOON</h2>
         <div className="buttons">
           <button className="address-button" onClick={() => handleCopy(false)}>
