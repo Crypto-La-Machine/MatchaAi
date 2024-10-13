@@ -6,7 +6,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [copyText, setCopyText] = useState("0x..E67");
 
-  const fullTokenAddress = 'CA: 0X57689087675465768798UH755565768798';
+  const fullTokenAddress = '0X57689087675465768798UH755565768798';
   const [formattedAddress, setFormattedAddress] = useState(fullTokenAddress);
 
   const formatTokenAddress = () => {
@@ -118,7 +118,7 @@ function App() {
             onClick={() => handleCopy(true)}
             style={{ cursor: "pointer" }}
           >
-            {formattedAddress}
+            CA: {formattedAddress}
           </span>
         </div>
       </div>
