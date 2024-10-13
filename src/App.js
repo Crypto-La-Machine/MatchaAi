@@ -4,7 +4,7 @@ import gsap from "gsap";
 function App() {
   const container = useRef();
   const [loading, setLoading] = useState(true);
-  const [copyText, setCopyText] = useState("0x...A8E67");
+  const [copyText, setCopyText] = useState("0x..E67");
 
   const fullTokenAddress = 'CA: 0X57689087675465768798UH755565768798';
   const [formattedAddress, setFormattedAddress] = useState(fullTokenAddress);
