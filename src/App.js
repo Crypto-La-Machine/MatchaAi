@@ -1,6 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const container = useRef();
+  const [loading, setLoading] = useState(true);
+
   const fullTokenAddress = 'CA: 0X57689087675465768798UH755565768798';
   const [formattedAddress, setFormattedAddress] = useState(fullTokenAddress);
 
@@ -21,8 +29,44 @@ function App() {
     return () => window.removeEventListener('resize', formatTokenAddress);
   }, []);
 
+  useGSAP(() => {
+    gsap.fromTo(
+      '.left-leaf',
+      { x: '-100vw' },
+      { x: '0', duration: 1.5, ease: 'power3.out' }
+    );
+
+    gsap.fromTo(
+      '.right-leaf',
+      { x: '100vw' },
+      { x: '0', duration: 1.5, ease: 'power3.out' }
+    );
+  }, { scope: container });
+
+  useEffect(() => {
+    const images = document.querySelectorAll("img");
+    let loadedImages = 0;
+    images.forEach((img) => {
+      img.onload = () => {
+        loadedImages++;
+        if (loadedImages === images.length) {
+          setTimeout(() => {
+            setLoading(false);
+            gsap.to(".coming-soon img, .content", {
+              opacity: 1,
+              duration: 1.5,
+              ease: "power2.out",
+            });
+          }, 500);
+        }
+      };
+    });
+  }, []);
+
   return (
-    <div className="coming-soon">
+    <div className="coming-soon" ref={container}>
+      {loading && <div className="loader">Loading...</div>}
+
       <img src="/leafMatchaLeft.webp" className="leaf left-leaf" alt="Left Leaf" />
       <img src="/leafMatchaRight.webp" className="leaf right-leaf" alt="Right Leaf" />
 
