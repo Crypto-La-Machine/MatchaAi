@@ -59,7 +59,7 @@ body {
   font-size: clamp(2.5rem, 4vw + 1rem, 4.2rem);
   color: #000;
   margin-bottom: 20px;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -3px;
   margin-right: 20px;
 }

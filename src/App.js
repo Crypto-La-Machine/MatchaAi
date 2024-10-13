@@ -29,21 +29,40 @@ function App() {
   useEffect(() => {
     const images = document.querySelectorAll("img");
     let loadedImages = 0;
+
     images.forEach((img) => {
-      img.onload = () => {
+      if (img.complete) {
         loadedImages++;
-        if (loadedImages === images.length) {
-          setTimeout(() => {
-            setLoading(false);
-            gsap.to(".coming-soon .content-img, .coming-soon .content", {
-              opacity: 1,
-              duration: 1.5,
-              ease: "power2.out",
-            });
-          }, 500);
-        }
-      };
+      } else {
+        img.onload = () => {
+          loadedImages++;
+          if (loadedImages === images.length) {
+            setTimeout(() => {
+              setLoading(false);
+              gsap.to(".coming-soon .content-img, .coming-soon .content", {
+                opacity: 1,
+                duration: 1.5,
+                ease: "power2.out",
+              });
+            }, 500);
+          }
+        };
+      }
     });
+
+    if (loadedImages === images.length) {
+      setTimeout(() => {
+        setLoading(false);
+        gsap.to(".coming-soon .content-img, .coming-soon .content", {
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+        });
+      }, 1000);
+    }
+
+    const timeout = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
