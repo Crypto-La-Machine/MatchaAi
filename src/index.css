@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -64,6 +65,18 @@ body {
   margin-right: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+.address-button,
+.buy-button {
+  user-select: auto;
+  cursor: pointer;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -98,14 +111,15 @@ body {
   border: 2px solid #000;
   background: transparent;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s;
   font-weight: 900;
   color: #000;
 }
 
 .address-button:hover,
 .buy-button:hover {
-  background-color: #000;
+  background-color: #6FC810;
+  border-color: #4d8c0b;
   color: #fff;
 }
 
@@ -128,10 +142,10 @@ body {
 .icon {
   stroke: #fff;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
   width: 37.5px;
   height: 37.5px;
-  background: #000;
+  background-color: #000;
   border-radius: 50%;
   margin-bottom: 5px;
   display: flex;
@@ -139,8 +153,14 @@ body {
   align-items: center;
 }
 
+.icon svg {
+  width: 70%;
+  height: 70%;
+}
+
 .icon:hover {
   transform: scale(1.1);
+  background-color: #4d8c0b;
 }
 
 .footer-info {
@@ -172,6 +192,16 @@ body {
 
 .footer-right {
   text-align: right;
+}
+
+.footer-item.footer-center {
+  color: #000;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+.footer-item.footer-center:hover {
+  color: #4d8c0b;
 }
 
 .loader {
