@@ -133,7 +133,7 @@ function App() {
             </span>
             {copyText}
           </button>
-          <button className="buy-button">BUY NOW</button>
+          <button className="buy-button" onClick={() => window.open("https://app.uniswap.org/explore/tokens/ethereum/0x85f9d045cee8dbc8e3cc0f491f9fb6ab830eeec3", "_blank")}>BUY NOW</button>
         </div>
       </div>
 
